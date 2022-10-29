@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd /ttrss-docker
+cd ~/docker/freshrss
 source .env
-docker exec ttrss-db /bin/bash \
-  -c "export PGPASSWORD=$TTRSS_DB_PASS \
-  && pg_dump -U $TTRSS_DB_USER $TTRSS_DB_NAME" \
+docker exec postgres /bin/bash \
+  -c "export PGPASSWORD=$FRESHRSS_DB_PASS \
+  && pg_dump -U $FRESHRSS_DB_USER $FRESHRSS_DB_NAME" \
   | gzip -9 > /backups/backup_$(date "+%F-%H%M%S").sql.gzip
 cd /
 
