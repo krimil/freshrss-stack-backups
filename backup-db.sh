@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd ~/docker/freshrss
+cd /freshrss
 source .env
 docker exec postgres /bin/bash \
   -c "export PGPASSWORD=$FRESHRSS_DB_PASS \
