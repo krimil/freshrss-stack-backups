@@ -5,7 +5,13 @@ source .env
 docker exec postgres /bin/bash \
   -c "export PGPASSWORD=$FRESHRSS_DB_PASS \
   && pg_dump -U $FRESHRSS_DB_USER $FRESHRSS_DB_NAME" \
-  | gzip -9 > /backups/backup_$(date "+%F-%H%M%S").sql.gzip
+  | gzip -9 > /backups/freshrss_$(date "+%F-%H%M%S").sql.gzip
+  
+docker exec invidious-db /bin/bash \
+  -c "export PGPASSWORD=$INVIDIOUS_DB_PASS \
+  && pg_dump -U $INVIDIOUS_DB_USER $INVIDIOUS_DB_NAME" \
+  | gzip -9 > /backups/invidious_$(date "+%F-%H%M%S").sql.gzip  
+
 cd /
 
 BACKUP_DIR=/backups
