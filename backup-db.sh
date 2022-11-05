@@ -17,5 +17,5 @@ docker exec freshrss-db /bin/bash \
 BACKUP_DIR=/backups
 find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm {} \;
 
-# REMOTE=$(rclone --config /config/rclone.conf listremotes | head -n 1)
-# rclone --config /config/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST
+REMOTE=$(rclone --config /config/rclone.conf listremotes | head -n 1)
+rclone --config /config/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST
