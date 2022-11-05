@@ -11,15 +11,15 @@ RUN apk add --no-cache \
     rclone
 
 # copy backup script to crond daily folder
-COPY backup-db.sh /
+COPY backup.sh /
 
 # copy entrypoint to usr bin
 COPY entrypoint.sh /
 
 # give execution permission to scripts
 RUN chmod +x /entrypoint.sh && \
-    chmod +x /backup-db.sh
+    chmod +x /backup.sh
 
-RUN echo "15 23 * * * /backup-db.sh" > /etc/crontabs/root
+RUN echo "15 23 * * * /backup.sh" > /etc/crontabs/root
 
 ENTRYPOINT ["/entrypoint.sh"]
