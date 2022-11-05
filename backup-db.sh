@@ -22,7 +22,7 @@ docker run --rm --volumes-from freshrss -v $BACKUP_DIR:$BACKUP_DIR ubuntu tar zc
 tar zcvf $BACKUP_DIR/env_$(date "+%F-%H%M%S").tar.gz ./.env
 
 #Confs
-tar zcvf $BACKUP_DIR/confs_$(date "+%F-%H%M%S").tar.gz ./confs
+tar zcvf $BACKUP_DIR/confs_$(date "+%F-%H%M%S").tar.gz ./confs/*.conf
 
 
 #Cleanup
