@@ -16,7 +16,7 @@ docker exec freshrss-db /bin/bash \
 
 
 #Volumes
-docker run --rm --volumes-from freshrss -v $(pwd):$BACKUP_DIR ubuntu tar zcvf $BACKUP_DIR/freshrss_config_$(date "+%F-%H%M%S").tar.gz /config
+docker run --rm --volumes-from freshrss -v $BACKUP_DIR:$BACKUP_DIR ubuntu tar zcvf $BACKUP_DIR/freshrss_config_$(date "+%F-%H%M%S").tar.gz /config
 
 
 #Cleanup
