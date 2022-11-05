@@ -23,5 +23,5 @@ docker run --rm --volumes-from freshrss -v $BACKUP_DIR:$BACKUP_DIR ubuntu tar zc
 find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm {} \;
 
 #Remote
-REMOTE=$(rclone --config /config/rclone.conf listremotes | head -n 1)
-rclone --config /config/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST
+REMOTE=$(rclone --config /confs/rclone.conf listremotes | head -n 1)
+rclone --config /confs/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST
