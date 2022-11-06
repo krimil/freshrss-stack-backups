@@ -1,7 +1,10 @@
 #!/bin/sh
 
-BACKUP_DIR=/backups
+BACKUPS_DIR=/backups
 CURDATE=$(date +"%Y%m%d")
+mkdir $BACKUPS_DIR/$CURDATE
+BACKUP_DIR=$BACKUPS_DIR/$CURDATE
+
 
 #Databases
 source .env
