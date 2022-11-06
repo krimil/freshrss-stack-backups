@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BACKUPS_DIR=/backups
-CURDATE=$(date +"%Y%m%d")
+CURDATE=$(date +"%Y-%m-%d")
 mkdir $BACKUPS_DIR/$CURDATE
 BACKUP_DIR=$BACKUPS_DIR/$CURDATE
 
@@ -32,4 +32,4 @@ find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm {} \;
 
 #Remote
 REMOTE=$(rclone --config /confs/rclone.conf listremotes | head -n 1)
-rclone --config /confs/rclone.conf sync $BACKUP_DIR/$CURDATE $REMOTE$BACKUP_RCLONE_DEST/$CURDATE
+rclone --config /confs/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST/$CURDATE
