@@ -1,6 +1,7 @@
 #!/bin/sh
 
 BACKUP_DIR=/backups
+CURDATE=$(date +"%Y%m%d")
 
 #Databases
 source .env
@@ -28,4 +29,4 @@ find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm {} \;
 
 #Remote
 REMOTE=$(rclone --config /confs/rclone.conf listremotes | head -n 1)
-rclone --config /confs/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST
+rclone --config /confs/rclone.conf sync $BACKUP_DIR/$CURDATE $REMOTE$BACKUP_RCLONE_DEST/$CURDATE
