@@ -7,7 +7,7 @@ BACKUP_DIR=$BACKUPS_DIR/$CURDATE
 
 
 #Databases
-source .env
+source /.env
 docker exec freshrss-db /bin/bash \
   -c "export PGPASSWORD=$FRESHRSS_DB_PASS \
   && pg_dump -U $FRESHRSS_DB_USER $FRESHRSS_DB_NAME" \
