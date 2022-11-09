@@ -22,10 +22,10 @@ docker exec invidious-db /bin/bash \
 docker run --rm --volumes-from freshrss -v $BACKUP_DIR:$BACKUP_DIR ubuntu tar zcvf $BACKUP_DIR/freshrss_config_$(date "+%F-%H%M%S").tar.gz /config
 
 #env
-tar zcvf $BACKUP_DIR/env_$(date "+%F-%H%M%S").tar.gz ./.env
+tar zcvf $BACKUP_DIR/env_$(date "+%F-%H%M%S").tar.gz /.env
 
 #Confs
-tar zcvf $BACKUP_DIR/confs_$(date "+%F-%H%M%S").tar.gz ./confs/*.conf
+tar zcvf $BACKUP_DIR/confs_$(date "+%F-%H%M%S").tar.gz /confs/*.conf
 
 #Cleanup
 find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm {} \;
