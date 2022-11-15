@@ -32,4 +32,4 @@ find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm -r {} \;
 
 #Remote
 REMOTE=$(rclone --config /confs/rclone.conf listremotes | head -n 1)
-rclone --config /confs/rclone.conf sync $BACKUP_DIR $REMOTE$BACKUP_RCLONE_DEST/$CURDATE
+rclone --config /confs/rclone.conf sync $BACKUPS_DIR $REMOTE$BACKUP_RCLONE_DEST
