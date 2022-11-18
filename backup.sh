@@ -28,7 +28,7 @@ tar zcvf $BACKUP_DIR/env_$(date "+%F-%H%M%S").tar.gz /.env
 tar zcvf $BACKUP_DIR/confs_$(date "+%F-%H%M%S").tar.gz /confs/*.conf
 
 #Cleanup
-find $BACKUP_DIR/* -mtime +$BACKUP_DAYS -exec rm -r {} \;
+find $BACKUPS_DIR/* -mtime +$BACKUP_DAYS -exec rm -r {} \;
 
 #Remote
 REMOTE=$(rclone --config /confs/rclone.conf listremotes | head -n 1)
